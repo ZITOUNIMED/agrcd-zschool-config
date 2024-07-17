@@ -4,7 +4,6 @@ metadata:
   labels:
     app: zstudents-web-dpl
   name: zstudents-web-dpl
-  namespace: zschool
 spec:
   replicas: 1
   selector:

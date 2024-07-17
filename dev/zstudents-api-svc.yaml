@@ -4,7 +4,6 @@ metadata:
   labels:
     app: zstudents-api-dpl
   name: zstudents-api-svc
-  namespace: zschool
 spec:
   ports:
   - port: 3000
