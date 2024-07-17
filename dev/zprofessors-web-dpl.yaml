@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: zprofessors-web-dpl
+  name: zprofessors-web-dpl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zprofessors-web-dpl
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: zprofessors-web-dpl
+    spec:
+      containers:
+      - image: mzitounieducation/zprofessors-web:1.0
+        name: zprofessors-web
+        args:
+        - "api.host=zprofessors-api-svc"
+        - "api.port=3000"

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: zprofessors-web-dpl
+  name: zprofessors-web-svc
+  namespace: zschool
+spec:
+  type: NodePort
+  ports:
+  - port: 4300
+    protocol: TCP
+    targetPort: 4300
+    nodePort: 30011
+  selector:
+    app: zprofessors-web-dpl
