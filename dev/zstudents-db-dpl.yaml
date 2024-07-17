@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: zstudents-db-dpl
+  name: zstudents-db-dpl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zstudents-db-dpl
+  template:
+    metadata:
+      labels:
+        app: zstudents-db-dpl
+    spec:
+      containers:
+      - image: mysql:5.7
+        name: mysql
+        envFrom:
+        - secretRef:
+            name: dbsecrets
