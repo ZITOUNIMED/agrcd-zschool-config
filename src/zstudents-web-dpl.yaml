@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: zstudents-web-dpl
+  name: zstudents-web-dpl
+  namespace: zschool
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zstudents-web-dpl
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: zstudents-web-dpl
+    spec:
+      containers:
+      - image: mzitounieducation/zstudents-web:1.0
+        name: zstudents-web
+        args:
+        - "api.host=zstudents-api-svc"
+        - "api.port=3000"

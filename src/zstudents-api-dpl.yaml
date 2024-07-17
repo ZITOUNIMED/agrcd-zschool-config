@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: zstudents-api-dpl
+  name: zstudents-api-dpl
+  namespace: zschool
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zstudents-api-dpl
+  template:
+    metadata:
+      labels:
+        app: zstudents-api-dpl
+    spec:
+      containers:
+      - args:
+        - db.port=3306
+        - db.host=zstudents-db-svc
+        - db.schema=webdb
+        - db.username=medzit
+        - db.password=paswrd2
+        image: mzitounieducation/zstudents-api:1.0
+        name: zstudents-api
