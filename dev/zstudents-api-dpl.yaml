@@ -23,3 +23,9 @@ spec:
         - db.password=paswrd2
         image: mzitounieducation/zstudents-api:1.0
         name: zstudents-api
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 10
+          periodSeconds: 10
